@@ -11,10 +11,11 @@ https://github.com/hossman/ifttt-trigger
 * Active the Maker channel: https://ifttt.com/maker
   * Make note of the "key" assigned to you
   * In the Usage examples below we'll assume it's YOUR_LONG_KEY
-* Create a Recipe that uses the Maker channel's "Recieve a web request" trigger
+* Add a Recipe that uses the Maker channel's "Recieve a web request" trigger
   * Chose an "Event Name" and make note of it
   * In the Usage examples below we'll assume it's EVENT_NAME
-
+  * Here's a simple recipe that sends push notifications to the "IF" phone app: https://ifttt.com/recipes/442155-simple-rest-based-phone-notification
+  
 ## Basic Usage
 
 ```bash
@@ -36,6 +37,7 @@ If you have the "IF" App installed on your phone, and an IFTTT recipe that sends
 
 ```bash
 # send alerts to phone via ifttt, or via notify-send if it fails for some reason
+# Assumes you're using this recipe: https://ifttt.com/recipes/442155-simple-rest-based-phone-notification
 function phone-alert {
     output=$($HOME/code/ifttt-trigger/ifttt-trigger.pl YOUR_LONG_KEY EVENT_NAME "$*");
     if [ "$?" -ne 0 ]; then
